@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('estimate-costs/', include('estimate_costs.urls')),
+    path('start/', include('muzyk.urls')),
 ]
