@@ -5,6 +5,4 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name="login_using_google_account/index.html")), # <--
-    path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
 ]
