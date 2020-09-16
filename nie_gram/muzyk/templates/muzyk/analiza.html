@@ -40,13 +40,29 @@
 
 
   <p>
-      <input type="submit" value="Analizuj">
+      <input type="submit" onclick="policz()" value="Na czysto">
+      <input type="text" name="wynik"><br>
   </p>
      <p>
-      <input type="submit" value="Wyczyść">
+      <input type="reset" onclick="reset" value="Wyczyść">
   </p>
+
+ </form>
  </div>
 
+<script>
+    function policz() {
+        let of = document.getElementsByName("oferta")[0].value;
+        let odl = document.getElementsByName("odleglosc")[0].value;
+        let car = document.getElementsByName("cars")[0].value;
+        let spal = document.getElementsByName("spalanie")[0].value;
+        let pal = document.getElementsByName("paliwo")[0].value;
+        let num2 = document.getElementsByName("num2")[0].value;
+        let nusssm2 = document.getElementsByName("num2")[0].value;
+        let sum = Number(num1) + Number(num2);
+        document.getElementsByName("sum")[0].value = sum;
+    }
+</script>
 
 </body>
 </html>
