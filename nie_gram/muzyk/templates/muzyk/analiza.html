@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     {% load static %}
 
     <link rel="stylesheet" type="text/css" href="{% static 'muzyk/style.css' %}">
@@ -8,6 +10,43 @@
     <title>Analiza oferty</title>
 </head>
 <body>
- <h2>tu będzie analiza oferty</h2>
+
+ <div class="container">
+     <h2><b>Analiza oferty</b></h2>
+ <form method="post">
+  <p><label>Oferta [zł] </label> <input type="number" min="0" name="oferta" />
+
+<input type="radio" name="wartosc" value="brutto">brutto
+<input type="radio" name="wartosc" value="netto">netto</p>
+     <fieldset>
+         <legend>Transport</legend>
+
+     <p><label>Odległość [km] </label>
+         <input type="number" required min="0" step="0.01" name="odleglosc" /></p>
+     <p><label>Ilość aut </label>
+         <input type="number" min="0" name="cars" />
+     <p><label>Średnie spalanie [l/km] </label>
+        <input type="number" min="0" name="spalanie" /></p>
+     <p><label>Średnia cena paliwa [zł] </label>
+         <input type="number" min="0" name="paliwo" /></p>
+         </fieldset>
+     <fieldset>
+         <legend>Inne</legend>
+     <p><label>Koszt noclegu [zł] </label>
+         <input type="number" min="0" name="hotel" /></p>
+     <p><label>Dodatkowe koszta [zł] </label>
+         <input type="number" min="0" name="hotel" /></p>
+          </fieldset>
+
+
+  <p>
+      <input type="submit" value="Analizuj">
+  </p>
+     <p>
+      <input type="submit" value="Wyczyść">
+  </p>
+ </div>
+
+
 </body>
 </html>
