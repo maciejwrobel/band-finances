@@ -10,6 +10,89 @@
     <title>Wycena zlecenia</title>
 </head>
 <body>
-<h2>tu będzie wycena</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+ <div class="container">
+
+
+     <h2><b>Wycena zlecenia</b></h2>
+
+     <form method="post">
+         {% csrf_token %}
+
+      <p><label>Oczekiwana stawka [zł] </label> <input type="number" min="0" name="stawka" />
+
+
+    <input type="radio" name="wartosc" value="netto" id="netto" onclick="showHide()">netto
+          <input type="radio" name="wartosc" value="brutto" id="brutto" onclick="showHide()" checked>brutto
+
+    <div id="hiddenBlock">
+        <label>Podatek [%]</label> <input type="number" min="0" max="99" name="podatek" id="podatek" />
+    </div>
+
+     <fieldset>
+         <legend>Transport</legend>
+     <p><label>Odległość [km] </label>
+         <input type="number" required min="0" step="0.01" name="odleglosc" /></p>
+     <p><label>Ilość aut </label>
+         <input type="number" min="0" name="cars" />
+     <p><label>Średnie spalanie [l/100km] </label>
+        <input type="number" min="0" name="spalanie" /></p>
+     <p><label>Średnia cena paliwa [zł] </label>
+         <input type="number" min="0" name="paliwo" /></p>
+         </fieldset>
+
+     <fieldset>
+         <legend>Inne</legend>
+     <p><label>Koszt noclegu [zł] </label>
+         <input type="number" min="0" name="hotel" /></p>
+     <p><label>Dodatkowe koszta [zł] </label>
+         <input type="number" min="0" name="inne" /></p>
+          </fieldset>
+
+
+      <p>
+          <input type="button" value="Wycena" onclick="calcWynik()" >
+          <input type="text" name="wyn"><br>
+
+      </p>
+         <p>
+          <input type="reset" onclick="reset" value="Wyczyść">
+      </p>
+
+ </form>
+
+<script>
+    function showHide() {
+
+                if(document.getElementById("netto").checked) {
+                    document.getElementById("podatek").value = "0";
+                    document.getElementById("hiddenBlock").style.display='none';
+                } else {
+                    document.getElementById("hiddenBlock").style.display='block';
+                    }
+            }
+
+
+
+    function calcWynik() {
+        let sta = document.getElementsByName("stawka")[0].value;
+        let pod = document.getElementsByName("podatek")[0].value;
+        let inn = document.getElementsByName("inne")[0].value;
+        let odl = document.getElementsByName("odleglosc")[0].value;
+        let car = document.getElementsByName("cars")[0].value;
+        let spa = document.getElementsByName("spalanie")[0].value;
+        let pal = document.getElementsByName("paliwo")[0].value;
+        let noc = document.getElementsByName("hotel")[0].value;
+
+        let transport = Number(car) * Number(odl) * Number(spa) * Number(pal) / 100
+
+        let wyn = (Number(sta) *(1 + (Number(pod) / 100))) + Number(inn) + Number(transport) + Number(noc);
+        document.getElementsByName("wyn")[0].value = wyn;
+    }
+
+</script>
 </body>
 </html>

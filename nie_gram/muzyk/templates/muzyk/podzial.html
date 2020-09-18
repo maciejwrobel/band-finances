@@ -10,9 +10,107 @@
     <title>Podział Złota</title>
 </head>
 <body>
-<h2>tu będzie podział</h2>
-<form method="post">
-{% csrf_token %}
+
+ <div class="container">
+
+
+     <h2><b>Podział złota</b></h2>
+
+     <form method="post">
+         {% csrf_token %}
+
+      <label>Wynagrodzenie [zł] </label> <input type="number" min="0" name="kwota" />
+          <br><label>Wielkość składu</label> <input type="number" min="0" name="osoby" />
+
+
+     <fieldset>
+         <legend>Poniesione koszta</legend>
+     <label>Transport </label>
+         <input type="number" required min="0" name="transport" />
+     <br><label>Nocleg </label>
+         <input type="number" min="0" name="hotel" />
+     <br><label>Obsługa techniczna </label>
+        <input type="number" min="0" name="obsluga" />
+     <br><label>Goście</label>
+         <input type="number" min="0" name="goscie" />
+         </fieldset>
+
+     <fieldset>
+         <legend>Zobowiązania</legend>
+     <label>Management</label>
+         <input type="checkbox" name="management" id="management" onclick="showOptions1()"/>
+<div id="1" style="display:none">
+    <label>% (po odliczeniu kosztów) </label> <input type="number" min="0" name="procent-man" id="procent-man" />
+
+</div>
+         <input style="display:none" type="number" min="0" name="man_kw_in" id="man_kw_in" />
+         <input style="display:none" type="number" min="0" name="man_kw_pr" id="man_kw_pr" />
+
+
+         <label>Fundusz zespołu</label>
+         <input type="checkbox" name="fundusz" id="fundusz" onclick="showOptions3()"/>
+<div id="3" style="display:none">
+        <label>Kwota na fundusz[zł] </label> <input type="number" min="0" name="kwota-na-fundusz" id="kwota-na-fundusz" />
+
+     </div>
+          </fieldset>
+
+
+      <p>
+          <br><input type="button" value="Do rączki" onclick="calcWynik()" >
+          <input type="text" name="wyn"><br>
+
+      </p>
+         <p>
+          <input type="reset" onclick="reset" value="Wyczyść">
+      </p>
+
+ </form>
+
+<script>
+    function showOptions1() {
+
+        if (document.getElementById("management").checked == true){
+            document.getElementById("1").style.display = "block";
+            } else {
+            document.getElementById("1").style.display = "none";
+            document.getElementById("procent-man").value = "0"
+            }
+            }
+
+
+
+    function showOptions3() {
+
+
+        if (document.getElementById("fundusz").checked == true){
+            document.getElementById("3").style.display = "block";
+            } else {
+            document.getElementById("3").style.display = "none";
+            document.getElementById("kwota-na-fundusz").value = "0"
+            }
+            }
+
+
+
+    function calcWynik() {
+        let kwo = document.getElementsByName("kwota")[0].value;
+        let os = document.getElementsByName("osoby")[0].value;
+        let tran = document.getElementsByName("transport")[0].value;
+        let hot = document.getElementsByName("hotel")[0].value;
+        let go = document.getElementsByName("goscie")[0].value;
+        let obs = document.getElementsByName("obsluga")[0].value;
+        let pro = document.getElementsByName("procent-man")[0].value;
+        let fun = document.getElementsByName("kwota-na-fundusz")[0].value;
+
+        let pokosztach = Number(kwo) - Number(tran) - Number(hot) - Number(obs) - Number(go)
+        let manager = Number(pokosztach) * Number(pro) / 100
+
+        let wyn = (Number(pokosztach) - Number(manager) - Number(fun)) / Number(os)
+        document.getElementsByName("wyn")[0].value = wyn;
+    }
+
+</script>
 
 
 </body>
