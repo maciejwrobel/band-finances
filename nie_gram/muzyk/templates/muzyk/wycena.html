@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    {% load static %}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'muzyk/style.css' %}">
-    <meta charset="UTF-8">
-    <title>Wycena zlecenia</title>
-</head>
+{% extends 'muzyk/main.html' %}
+{% load static %}
+{% block content %}
 <body>
 
 <form method="post">
@@ -35,7 +28,7 @@
      <fieldset>
          <legend>Transport</legend>
      <p><label>Odległość [km] </label>
-         <input type="number" required min="0" step="0.01" name="odleglosc" /></p>
+         <input type="number" required min="0"  name="odleglosc" /></p>
      <p><label>Ilość aut </label>
          <input type="number" min="0" name="cars" />
      <p><label>Średnie spalanie [l/100km] </label>
@@ -63,36 +56,10 @@
       </p>
 
  </form>
-
-<script>
-    function showHide() {
-
-                if(document.getElementById("netto").checked) {
-                    document.getElementById("podatek").value = "0";
-                    document.getElementById("hiddenBlock").style.display='none';
-                } else {
-                    document.getElementById("hiddenBlock").style.display='block';
-                    }
-            }
-
-
-
-    function calcWynik() {
-        let sta = document.getElementsByName("stawka")[0].value;
-        let pod = document.getElementsByName("podatek")[0].value;
-        let inn = document.getElementsByName("inne")[0].value;
-        let odl = document.getElementsByName("odleglosc")[0].value;
-        let car = document.getElementsByName("cars")[0].value;
-        let spa = document.getElementsByName("spalanie")[0].value;
-        let pal = document.getElementsByName("paliwo")[0].value;
-        let noc = document.getElementsByName("hotel")[0].value;
-
-        let transport = Number(car) * Number(odl) * Number(spa) * Number(pal) / 100
-
-        let wyn = (Number(sta) *(1 + (Number(pod) / 100))) + Number(inn) + Number(transport) + Number(noc);
-        document.getElementsByName("wyn")[0].value = wyn;
-    }
-
+{% endblock %}
+{% block script %}
+<script src="{% static 'muzyk/js/wycena.js' %}">
 </script>
+{% endblock %}
 </body>
 </html>

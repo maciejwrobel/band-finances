@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    {% load static %}
 
-    <link rel="stylesheet" type="text/css" href="{% static 'muzyk/style.css' %}">
-    <meta charset="UTF-8">
-    <title>Podział Złota</title>
-</head>
+{% extends 'muzyk/main.html' %}
+{% load static %}
+{% block content %}
 <body>
 
  <div class="container">
@@ -66,52 +59,10 @@
       </p>
 
  </form>
-
-<script>
-    function showOptions1() {
-
-        if (document.getElementById("management").checked == true){
-            document.getElementById("1").style.display = "block";
-            } else {
-            document.getElementById("1").style.display = "none";
-            document.getElementById("procent-man").value = "0"
-            }
-            }
-
-
-
-    function showOptions3() {
-
-
-        if (document.getElementById("fundusz").checked == true){
-            document.getElementById("3").style.display = "block";
-            } else {
-            document.getElementById("3").style.display = "none";
-            document.getElementById("kwota-na-fundusz").value = "0"
-            }
-            }
-
-
-
-    function calcWynik() {
-        let kwo = document.getElementsByName("kwota")[0].value;
-        let os = document.getElementsByName("osoby")[0].value;
-        let tran = document.getElementsByName("transport")[0].value;
-        let hot = document.getElementsByName("hotel")[0].value;
-        let go = document.getElementsByName("goscie")[0].value;
-        let obs = document.getElementsByName("obsluga")[0].value;
-        let pro = document.getElementsByName("procent-man")[0].value;
-        let fun = document.getElementsByName("kwota-na-fundusz")[0].value;
-
-        let pokosztach = Number(kwo) - Number(tran) - Number(hot) - Number(obs) - Number(go)
-        let manager = Number(pokosztach) * Number(pro) / 100
-
-        let wyn = (Number(pokosztach) - Number(manager) - Number(fun)) / Number(os)
-        document.getElementsByName("wyn")[0].value = wyn;
-    }
-
+{% endblock %}
+{% block script %}
+<script src="{% static 'muzyk/js/podzial.js' %}">
 </script>
-
-
+{% endblock %}
 </body>
 </html>
