@@ -19,9 +19,11 @@ from django.views.generic import TemplateView
 
 
 urlpatterns = [
-    path('', include('login_using_google_account.urls')), # <--
+    path('google-auth', include('login_using_google_account.urls')), # <--
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('estimate-costs/', include('estimate_costs.urls')),
     path('start/', include('muzyk.urls')),
+    path('logowanie/', include('logowanie.urls')),
+    path('', include('django.contrib.auth.urls')),
 ]

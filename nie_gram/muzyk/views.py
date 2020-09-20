@@ -8,6 +8,9 @@ def index(request):
 def main(request):
     return render(request, 'muzyk/main.html')
 
+def logowanie(request):
+    return render(request, 'registration/witaj.html')
+
 def fast(request):
     return render(request, 'muzyk/fast.html')
 
