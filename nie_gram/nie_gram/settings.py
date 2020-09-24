@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'logowanie',
     'muzyk',
     'estimate_costs',
     'django.contrib.admin',
@@ -41,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',  # <--
+    'register',
     'login_using_google_account',
 
     'allauth',  # <--
@@ -118,9 +118,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pl'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Warsaw'
 
 USE_I18N = True
 
@@ -133,8 +133,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGIN_REDIRECT_URL="/logowanie/witaj-login"
-LOGOUT_REDIRECT_URL="/logowanie/witaj-login"
+REGISTRATION_AUTO_LOGIN = True          #automatyczne logowanie po rejestracji
+LOGIN_REDIRECT_URL="/start/"             #strona po zalogowaniu
+LOGIN_URL = '/accounts/login/'          #strona logowania
+LOGOUT_REDIRECT_URL="/accounts/login/"  #strona po wylogowaniu
 
 
 

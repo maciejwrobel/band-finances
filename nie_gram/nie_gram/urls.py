@@ -24,6 +24,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('estimate-costs/', include('estimate_costs.urls')),
     path('start/', include('muzyk.urls')),
-    path('logowanie/', include('logowanie.urls')),
     path('', include('django.contrib.auth.urls')),
 ]
