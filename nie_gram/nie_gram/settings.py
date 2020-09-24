@@ -139,7 +139,6 @@ LOGIN_URL = '/accounts/login/'          #strona logowania
 LOGOUT_REDIRECT_URL="/accounts/login/"  #strona po wylogowaniu
 
 
-
 SITE_ID = 2
 
 SOCIALACCOUNT_PROVIDERS = {

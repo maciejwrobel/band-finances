@@ -25,7 +25,7 @@ class Zespol(models.Model):
     def __str__(self):
         return f"Ilość członków: {self.ilosc_czlonkow} " \
                f"Manager: {self.manager} " \
-               f"Minimalna kwota, za którą gramy: {self.min_kwota_zlecenia}" \
+               f"Minimalna kwota, za którą gramy: {self.min_kwota_zlecenia} " \
                f"Fundusz zespołu: {self.fundusz}"
 
     def __unicode__(self):
