@@ -12,7 +12,7 @@ def main(request):
     return render(request, 'muzyk/main.html')
 
 def logowanie(request):
-    return render(request, 'registration/login.html')
+    return render(request, 'register/login.html')
 
 def fast(request):
     return render(request, 'muzyk/fast.html')

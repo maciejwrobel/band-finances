@@ -136,7 +136,7 @@ STATIC_URL = '/static/'
 REGISTRATION_AUTO_LOGIN = True          #automatyczne logowanie po rejestracji
 LOGIN_REDIRECT_URL="/start/"             #strona po zalogowaniu
 LOGIN_URL = '/accounts/login/'          #strona logowania
-LOGOUT_REDIRECT_URL="/accounts/login/"  #strona po wylogowaniu
+# LOGOUT_REDIRECT_URL="/login/"  #strona po wylogowaniu
 
 
 SITE_ID = 2
