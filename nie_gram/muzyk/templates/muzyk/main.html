@@ -1,38 +1,20 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    {% load static %}
 
-
-    {% block style %}
-        <link rel="stylesheet" type="text/css" href="{% static 'muzyk/style.css' %}">
-    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'muzyk/style.css' %}">
     <style>
-        h1 {
-            text-align: center;
-            align: middle;
-        }
-        h2 {
-            text-align: left;
-            align: middle;
-        }
+        h1 {text-align: center;
+            align: middle;}
     </style>
-
     <meta charset="UTF-8">
-    <title>Nie gram za piwo</title>
-
+    <title>Cześć</title>
 </head>
 <body>
-{% block content %}
-        <p><h1>będzie hiperłącze do logowania</h1></p>
+        <p><h1><a href="logowanie">Logowanie</a></h1></p>
         <p><h1><a href="fast">Szybkie kalkulacje</a></h1></p>
-
-{% endblock %}
-
-{% block script %}
-{% endblock %}
-
 </body>
 </html>
