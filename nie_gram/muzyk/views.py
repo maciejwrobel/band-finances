@@ -26,6 +26,8 @@ def wycena(request):
 def podzial(request):
     return render(request, 'muzyk/podzial.html')
 
+def slow(request):
+    return render(request, 'muzyk/slow.html')
 
 class ZespolList(ListView):
     model = Zespol

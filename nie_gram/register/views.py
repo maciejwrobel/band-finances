@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from .forms import RegisterForm
 
 # Create your views here.
+def index(request):
+    return render(request, 'register/index.html')
+
 
 def register(request):
     if request.method == "POST":
@@ -13,4 +16,4 @@ def register(request):
     else:
         form = RegisterForm()
 
-    return render(request, 'register/register.html', {'form':form})
+    return render(request, 'register/register.html', {"form":form})

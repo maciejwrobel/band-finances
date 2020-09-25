@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,21 +9,25 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'muzyk/style.css' %}">
     <style>
-        h1,h2 {text-align: center;
+        h1 {text-align: center;
             align: middle;}
     </style>
     <meta charset="UTF-8">
-    <title>Cześć</title>
+    <title>Login</title>
 </head>
 <body>
-    {% if not user.is_authenticated %}
-        <p><h1><a href="/login">Logowanie</a></h1></p>
-        <p><h1><a href="fast">Szybkie kalkulacje</a></h1></p>
-    {% endif %}
-    {% if user.is_authenticated %}
-        <p><h1>Witaj {{ user.username }}!</h1></p>
-        <p><h1><a href="slow">Kalkulacje</a></h1></p>
-    {% endif %}
-
+    <form method="POST" action=".">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Zaloguj się">
+    </form>
+<hr>
+<p>
+    Nie masz konta?<br>
+    <a href="/register/register">Utwórz konto!</a>
+</p>
+<p>
+    Wróć do <a href="/start">poprzedniej strony</a>.
+</p>
 </body>
 </html>

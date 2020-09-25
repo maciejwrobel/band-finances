@@ -10,5 +10,5 @@ urlpatterns = [
     path('fast/analiza/', views.analiza, name='analiza'),
     path('fast/wycena/', views.wycena, name='wycena'),
     path('fast/podzial/', views.podzial, name='podzial'),
-    path('start/logowanie/', views.logowanie, name='logowanie'),
+    path('slow/', views.slow, name='slow'),
 ]
