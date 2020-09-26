@@ -19,6 +19,7 @@
     {% for item in object_list %}
         <li>{{item}}</li>
         <a href="{% url 'muzyk:zespol-update' item.id %}">Edytuj</a>
+        <a href="{% url 'muzyk:zespol-delete' item.id %}">Usuń</a>
     {% endfor %}
     </ol>
 
