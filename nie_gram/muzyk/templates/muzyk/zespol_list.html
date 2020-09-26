@@ -12,10 +12,13 @@
 <body>
 <!--    Widok w stringu poprostu-->
     <h1>Lista Zespołów</h1>
+    <form action="{% url 'muzyk:zespol-create' %}">
+        <input type="submit" value="Stwórz zespół">
+    </form>
     <ol>
     {% for item in object_list %}
         <li>{{item}}</li>
-        <a href="update/<int:pk>">Edytuj</a>
+        <a href="{% url 'muzyk:zespol-update' item.id %}">Edytuj</a>
     {% endfor %}
     </ol>
 

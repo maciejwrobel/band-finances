@@ -34,7 +34,7 @@ class Zespol(models.Model):
         return u'%s' % (self.nazwa)
 
     def get_absolute_url(self):
-        return reverse('muzyk:lista')
+        return reverse('muzyk:zespol-lista')
 
 
 class Samochod(models.Model):
@@ -57,6 +57,9 @@ class Samochod(models.Model):
 
     class Meta:
         verbose_name_plural = 'samochody'
+
+    def get_absolute_url(self):
+        return reverse('muzyk:samochod-lista')
 
     def __unicode__(self):
         return u'%s' % (self.nazwa)
