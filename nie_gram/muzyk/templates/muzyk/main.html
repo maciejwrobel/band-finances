@@ -9,6 +9,10 @@
     <style>
         h1,h2 {text-align: center;
             align: middle;}
+
+        .guzik{
+            position: center;
+        }
     </style>
     <meta charset="UTF-8">
     <title>Cześć</title>
@@ -20,7 +24,7 @@
     {% endif %}
     {% if user.is_authenticated %}
         <p><h1>Witaj {{ user.username }}!</h1></p>
-        <form action="/logout/">
+        <form class="guzik" action="/logout/">
             <input type="submit" value="Wyloguj">
         </form>
         <p><h1><a href="slow">Kalkulacje</a></h1></p>

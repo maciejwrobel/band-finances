@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'muzyk',
-    'estimate_costs',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,13 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',  # <--
     'register',
-    'login_using_google_account',
 
-    'allauth',  # <--
-    'allauth.account',  # <--
-    'allauth.socialaccount',  # <--
-    'allauth.socialaccount.providers.google',  # <--
-    ]
+
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -141,14 +136,3 @@ LOGIN_URL = '/login/'                   #strona logowania
 
 SITE_ID = 2
 
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
-    }
-}
