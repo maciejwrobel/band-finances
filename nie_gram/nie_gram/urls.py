@@ -20,10 +20,7 @@ from django.views.generic import TemplateView
 
 
 urlpatterns = [
-    path('google-auth', include('login_using_google_account.urls')), # <--
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
-    path('estimate-costs/', include('estimate_costs.urls')),
     path('start/', include('muzyk.urls')),
     path('register/', include('register.urls')),
     path('', include('django.contrib.auth.urls')),
