@@ -15,29 +15,31 @@
     <form action="{% url 'muzyk:zespol-create' %}">
         <input type="submit" value="Stwórz zespół">
     </form>
-    <ol>
-    {% for item in object_list %}
-        <li>{{item}}</li>
-        <a href="{% url 'muzyk:zespol-update' item.id %}">Edytuj</a>
-        <a href="{% url 'muzyk:zespol-delete' item.id %}">Usuń</a>
-    {% endfor %}
-    </ol>
+<!--    <ol>-->
+<!--    {% for item in object_list %}-->
+<!--        <li>{{item}}</li>-->
+<!--        <a href="{% url 'muzyk:zespol-update' item.id %}">Edytuj</a>-->
+<!--        <a href="{% url 'muzyk:zespol-delete' item.id %}">Usuń</a>-->
+<!--    {% endfor %}-->
+<!--    </ol>-->
 
 <!--    Widok w tabeli-->
-<!--    <table class="table">-->
-<!--    <tr><th>Lp.</th><th>Nazwa</th><th>Ilość członków</th><th>Skład</th><th>Manager</th><th>Minimalna kwota zlecenia</th><th>Fundusz</th><th>Nazwa użytkownika</th></tr>-->
-<!--    {% for p in object_list %}-->
-<!--    <tr>-->
-<!--      <td>{{ forloop.counter }}</td>-->
-<!--      <td>{{ p.nazwa }}</td>-->
-<!--      <td>{{ p.ilosc_czlonkow }}</td>-->
-<!--      <td>{{ p.sklad_zespolu }}</td>-->
-<!--      <td>{{ p.manager }}</td>-->
-<!--      <td>{{ p.min_kwota_zlecenia }}</td>-->
-<!--      <td>{{ p.fundusz }}</td>-->
-<!--      <td>{{ p.autor.username }}</td>-->
-<!--    </tr>-->
-<!--    {% endfor %}-->
-<!--    </table>-->
+    <table class="table">
+    <tr><th>Lp.</th><th>Nazwa</th><th>Operacje</th></tr>
+    {% for p in object_list %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td><a href="{% url 'muzyk:zespol-detail' p.id %}">{{ p.nazwa }}</a></td>
+      <td>
+        {% if p.autor.username == user.username %}
+<!--          <a href="{% url 'muzyk:zespol-detail' p.id %}">Szczegóły</a>    albo szczegóły obok edytuj i usun albo szczegóły klikając w nazwę zespołu-->
+          <a href="{% url 'muzyk:zespol-update' p.id %}">Edytuj</a>
+          <a href="{% url 'muzyk:zespol-delete' p.id %}">Usuń</a>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+    </table>
+    <p>Wróć do <a href="{% url 'muzyk:slow' %}">poprzedniej strony</a>.</p>
 </body>
 </html>

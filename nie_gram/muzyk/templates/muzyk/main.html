@@ -20,14 +20,14 @@
 <body>
     {% if not user.is_authenticated %}
         <p><h1><a href="/login">Logowanie</a></h1></p>
-        <p><h1><a href="fast">Szybkie kalkulacje</a></h1></p>
+        <p><h1><a href="{% url 'muzyk:fast' %}">Szybkie kalkulacje</a></h1></p>
     {% endif %}
     {% if user.is_authenticated %}
         <p><h1>Witaj {{ user.username }}!</h1></p>
         <form class="guzik" action="/logout/">
             <input type="submit" value="Wyloguj">
         </form>
-        <p><h1><a href="slow">Kalkulacje</a></h1></p>
+        <p><h1><a href="{% url 'muzyk:slow' %}">Kalkulacje</a></h1></p>
     {% endif %}
 
 </body>

@@ -7,24 +7,21 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'muzyk/style.css' %}">
     <meta charset="UTF-8">
-    <title>Szczegóły zespołu</title>
+    <title>Szczegóły samochodu</title>
 </head>
 <body>
     <h2>{{ object.nazwa }}</h2>
     <table class="table">-->
-    <tr><th>Lp.</th><th>Nazwa</th><th>Ilość członków</th><th>Skład</th><th>Manager</th><th>Minimalna kwota zlecenia</th><th>Fundusz</th><th>Nazwa użytkownika</th></tr>
+    <tr><th>Lp.</th><th>Nazwa</th><th>Paliwo</th><th>Ile litrów pali na 100km</th><th>W jakim jest zespole</th><th>Nazwa użytkownika, który go stworzył</th></tr>
     <tr>
       <td>{{ object.id }}</td>
       <td>{{ object.nazwa }}</td>
-      <td>{{ object.ilosc_czlonkow }}</td>
-      <td>{{ object.samochody }}</td>
-      <td>{{ object.sklad_zespolu }}</td>
-      <td>{{ object.manager }}</td>
-      <td>{{ object.min_kwota_zlecenia }}</td>
-      <td>{{ object.fundusz }}</td>
-      <td>{{ object.autor.username }}</td>
+      <td>{{ object.paliwo }}</td>
+      <td>{{ object.ile_litrow_pali_na_100_km }}</td>
+      <td>{{ object.zespol }}</td>
+      <td>{{ object.autor }}</td>
     </tr>
     </table>
-    <p>Wróć do <a href="{% url 'muzyk:zespol-lista' %}">poprzedniej strony</a>.</p>
+    <p>Wróć do <a href="{% url 'muzyk:samochod-lista' %}">poprzedniej strony</a>.</p>
 </body>
 </html>
