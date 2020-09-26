@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,21 +11,14 @@
             align: middle;}
     </style>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Formularz do rejestracji</title>
 </head>
 <body>
+    <h1>Tworzenie konta</h1>
     <form method="POST" action=".">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Zaloguj się">
+        <input type="submit" value="Utwórz konto">
     </form>
-<hr>
-<p>
-    Nie masz konta?<br>
-    <a href="/register/register">Utwórz konto!</a>
-</p>
-<p>
-    Wróć do <a href="/start">poprzedniej strony</a>.
-</p>
 </body>
 </html>

@@ -1,5 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import RegisterForm
 
 # Create your views here.
-# def index(request):
-#     return render(request, 'registration/index.html')
+def index(request):
+    return render(request, 'register/index.html')
+
+
+def register(request):
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+        return redirect("/start")
+    else:
+        form = RegisterForm()
+
+    return render(request, 'register/register.html', {"form":form})

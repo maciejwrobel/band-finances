@@ -134,9 +134,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 REGISTRATION_AUTO_LOGIN = True          #automatyczne logowanie po rejestracji
-LOGIN_REDIRECT_URL="/start/"             #strona po zalogowaniu
-LOGIN_URL = '/accounts/login/'          #strona logowania
-LOGOUT_REDIRECT_URL="/accounts/login/"  #strona po wylogowaniu
+LOGIN_REDIRECT_URL="/start/"            #strona po zalogowaniu
+LOGIN_URL = '/login/'                   #strona logowania
+# LOGOUT_REDIRECT_URL="/"          #strona po wylogowaniu
 
 
 SITE_ID = 2

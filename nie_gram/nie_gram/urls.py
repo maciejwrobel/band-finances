@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 
 
+
 urlpatterns = [
     path('google-auth', include('login_using_google_account.urls')), # <--
     path('admin/', admin.site.urls),

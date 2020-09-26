@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'muzyk/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Szczegóły zespołu</title>
+</head>
+<body>
+    <h2>{{ object.nazwa }}</h2>
+    <table class="table">-->
+    <tr><th>Lp.</th><th>Nazwa</th><th>Ilość członków</th><th>Skład</th><th>Manager</th><th>Minimalna kwota zlecenia</th><th>Fundusz</th><th>Nazwa użytkownika</th></tr>
+    <tr>
+      <td>{{ object.id }}</td>
+      <td>{{ object.nazwa }}</td>
+      <td>{{ object.ilosc_czlonkow }}</td>
+      <td>{{ object.sklad_zespolu }}</td>
+      <td>{{ object.manager }}</td>
+      <td>{{ object.min_kwota_zlecenia }}</td>
+      <td>{{ object.fundusz }}</td>
+      <td>{{ object.autor.username }}</td>
+    </tr>
+    </table>
+    <p>Wróć do <a href="/start/lista">poprzedniej strony</a>.</p>
+</body>
+</html>

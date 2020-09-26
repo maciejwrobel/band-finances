@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.urls import reverse_lazy
 
 from .models import Zespol
 # Create your views here.
@@ -12,7 +13,7 @@ def main(request):
     return render(request, 'muzyk/main.html')
 
 def logowanie(request):
-    return render(request, 'registration/login.html')
+    return render(request, 'register/login.html')
 
 def fast(request):
     return render(request, 'muzyk/fast.html')
@@ -26,6 +27,8 @@ def wycena(request):
 def podzial(request):
     return render(request, 'muzyk/podzial.html')
 
+def slow(request):
+    return render(request, 'muzyk/slow.html')
 
 class ZespolList(ListView):
     model = Zespol
@@ -47,3 +50,4 @@ class ZespolUpdate(UpdateView):
 
 class ZespolDelete(DeleteView):
     model = Zespol
+    success_url = reverse_lazy("muzyk:lista")
