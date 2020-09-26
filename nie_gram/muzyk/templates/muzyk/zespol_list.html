@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'muzyk/style.css' %}">
     <meta charset="UTF-8">
     <title>Lista Zespolow</title>
 </head>
 <body>
+<!--    Widok w stringu poprostu-->
     <h1>Lista Zespołów</h1>
-
-    <table class="table">
-    <tr><th>Lp.</th><th>Nazwa</th><th>Ilość członków</th><th>Skład</th><th>Manager</th><th>Minimalna kwota zlecenia</th><th>Fundusz</th><th>Operacje</th></tr>
-    {% for p in object_list %}
-    <tr>
-      <td>{{ forloop.counter }}</td>
-      <td>{{ p.nazwa }}</td>
-      <td>{{ p.ilosc_czlonkow }}</td>
-      <td>{{ p.sklad_zespolu }}</td>
-      <td>{{ p.manager }}</td>
-      <td>{{ p.min_kwota_zlecenia }}</td>
-      <td>{{ p.fundusz }}</td>
-      <td>{{ p.autor.username }}</td>
-      <td>
-        {% if 1 == 1 %}  <!--{% if p.autor.username == user.username %}-->
-          <a href="#">Edytuj</a> &bull;
-          <a href="#">Usuń</a>
-        {% endif %}
-      </td>
-    </tr>
+    <ol>
+    {% for item in object_list %}
+        <li>{{item}}</li>
+        <a href="update/<int:pk>">Edytuj</a>
     {% endfor %}
-    </table>
+    </ol>
+
+<!--    Widok w tabeli-->
+<!--    <table class="table">-->
+<!--    <tr><th>Lp.</th><th>Nazwa</th><th>Ilość członków</th><th>Skład</th><th>Manager</th><th>Minimalna kwota zlecenia</th><th>Fundusz</th><th>Nazwa użytkownika</th></tr>-->
+<!--    {% for p in object_list %}-->
+<!--    <tr>-->
+<!--      <td>{{ forloop.counter }}</td>-->
+<!--      <td>{{ p.nazwa }}</td>-->
+<!--      <td>{{ p.ilosc_czlonkow }}</td>-->
+<!--      <td>{{ p.sklad_zespolu }}</td>-->
+<!--      <td>{{ p.manager }}</td>-->
+<!--      <td>{{ p.min_kwota_zlecenia }}</td>-->
+<!--      <td>{{ p.fundusz }}</td>-->
+<!--      <td>{{ p.autor.username }}</td>-->
+<!--    </tr>-->
+<!--    {% endfor %}-->
+<!--    </table>-->
 </body>
 </html>

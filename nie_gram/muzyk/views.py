@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.urls import reverse_lazy
 
 from .models import Zespol
 # Create your views here.
@@ -49,3 +50,4 @@ class ZespolUpdate(UpdateView):
 
 class ZespolDelete(DeleteView):
     model = Zespol
+    success_url = reverse_lazy("muzyk:lista")

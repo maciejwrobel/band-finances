@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 class Zespol(models.Model):
@@ -31,6 +32,9 @@ class Zespol(models.Model):
 
     def __unicode__(self):
         return u'%s' % (self.nazwa)
+
+    def get_absolute_url(self):
+        return reverse('muzyk:lista')
 
 
 class Samochod(models.Model):
