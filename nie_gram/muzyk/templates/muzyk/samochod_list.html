@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'muzyk/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Lista samochodów</title>
+</head>
+<body>
+<!--    Widok w stringu poprostu-->
+    <h1>Lista Samochodów</h1>
+    <form action="{% url 'muzyk:samochod-create' %}">
+        <input type="submit" value="Stwórz samochód">
+    </form>
+    <ol>
+    {% for item in object_list %}
+        <li>{{ item.nazwa }}</li>
+        <a href="{% url 'muzyk:samochod-update' item.id %}">Edytuj</a>
+        <a href="{% url 'muzyk:samochod-delete' item.id %}">Usuń</a>
+    {% endfor %}
+    </ol>

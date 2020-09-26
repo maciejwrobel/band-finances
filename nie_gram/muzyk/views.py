@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 
-from .models import Zespol
+from .models import Zespol, Samochod
 # Create your views here.
 
 
@@ -58,4 +58,27 @@ class ZespolUpdate(UpdateView):
 
 class ZespolDelete(DeleteView):
     model = Zespol
-    success_url = reverse_lazy("muzyk:lista")
+    success_url = reverse_lazy("muzyk:zespol-lista")
+
+
+class SamochodList(ListView):
+    model = Samochod
+
+
+class SamochodDetail(DetailView):
+    model = Samochod
+
+
+class SamochodCreate(CreateView):
+    model = Samochod
+    fields = '__all__'
+
+
+class SamochodUpdate(UpdateView):
+    model = Samochod
+    fields = '__all__'
+
+
+class SamochodDelete(DeleteView):
+    model = Samochod
+    success_url = reverse_lazy("muzyk:samochod-lista")
