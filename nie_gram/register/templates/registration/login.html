@@ -16,18 +16,21 @@
     <title>Login</title>
 </head>
 <body>
-    <form method="POST" action=".">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Zaloguj się">
-    </form>
-<hr>
-<p>
-    Nie masz konta?<br>
-    <a href="{% url 'register:register' %}">Utwórz konto!</a>
-</p>
-<p>
-    Wróć do <a href="{% url 'muzyk:main' %}">poprzedniej strony</a>.
-</p>
+    <p></p>
+    <div class="container">
+        <form method="POST" action=".">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Zaloguj się">
+        </form>
+        <hr>
+        <p>
+            Nie masz konta?<br>
+            <a href="{% url 'register:register' %}">Utwórz konto!</a>
+        </p>
+        <p>
+            Wróć do <a href="{% url 'muzyk:main' %}">poprzedniej strony</a>.
+        </p>
+    </div>
 </body>
 </html>

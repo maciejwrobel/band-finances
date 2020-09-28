@@ -24,9 +24,12 @@
     {% endif %}
     {% if user.is_authenticated %}
         <p><h1>Witaj {{ user.username }}!</h1></p>
-        <form class="guzik" action="/logout/">
-            <input type="submit" value="Wyloguj">
-        </form>
+        <div>
+            <form action="/logout/">
+                <input type="submit" value="Wyloguj" style="display: block; margin: auto;">
+            </form>
+        </div>
+        <hr>
         <p><h1><a href="{% url 'muzyk:slow' %}">Kalkulacje</a></h1></p>
     {% endif %}
 

@@ -10,36 +10,39 @@
     <title>Lista Zespolow</title>
 </head>
 <body>
-<!--    Widok w stringu poprostu-->
-    <h1>Lista Zespołów</h1>
-    <form action="{% url 'muzyk:zespol-create' %}">
-        <input type="submit" value="Stwórz zespół">
-    </form>
-<!--    <ol>-->
-<!--    {% for item in object_list %}-->
-<!--        <li>{{item}}</li>-->
-<!--        <a href="{% url 'muzyk:zespol-update' item.id %}">Edytuj</a>-->
-<!--        <a href="{% url 'muzyk:zespol-delete' item.id %}">Usuń</a>-->
-<!--    {% endfor %}-->
-<!--    </ol>-->
+    <div class="container">
+    <!--    Widok w stringu poprostu-->
+        <h1>Zespoły</h1>
+        <p></p>
+        <form action="{% url 'muzyk:zespol-create' %}">
+            <input type="submit" value="Dodaj">
+        </form>
+    <!--    <ol>-->
+    <!--    {% for item in object_list %}-->
+    <!--        <li>{{item}}</li>-->
+    <!--        <a href="{% url 'muzyk:zespol-update' item.id %}">Edytuj</a>-->
+    <!--        <a href="{% url 'muzyk:zespol-delete' item.id %}">Usuń</a>-->
+    <!--    {% endfor %}-->
+    <!--    </ol>-->
 
-<!--    Widok w tabeli-->
-    <table class="table">
-    <tr><th>Lp.</th><th>Nazwa</th><th>Operacje</th></tr>
-    {% for p in object_list %}
-    <tr>
-      <td>{{ forloop.counter }}</td>
-      <td><a href="{% url 'muzyk:zespol-detail' p.id %}">{{ p.nazwa }}</a></td>
-      <td>
-        {% if p.autor.username == user.username %}
-<!--          <a href="{% url 'muzyk:zespol-detail' p.id %}">Szczegóły</a>    albo szczegóły obok edytuj i usun albo szczegóły klikając w nazwę zespołu-->
-          <a href="{% url 'muzyk:zespol-update' p.id %}">Edytuj</a>
-          <a href="{% url 'muzyk:zespol-delete' p.id %}">Usuń</a>
-        {% endif %}
-      </td>
-    </tr>
-    {% endfor %}
-    </table>
-    <p>Wróć do <a href="{% url 'muzyk:slow' %}">poprzedniej strony</a>.</p>
+    <!--    Widok w tabeli-->
+        <table class="table">
+        <tr><th>Lp.</th><th>Nazwa</th><th>Operacje</th></tr>
+        {% for p in object_list %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td><a href="{% url 'muzyk:zespol-detail' p.id %}">{{ p.nazwa }}</a></td>
+          <td>
+            {% if p.autor.username == user.username %}
+    <!--          <a href="{% url 'muzyk:zespol-detail' p.id %}">Szczegóły</a>    albo szczegóły obok edytuj i usun albo szczegóły klikając w nazwę zespołu-->
+              <a href="{% url 'muzyk:zespol-update' p.id %}">Edytuj</a>
+              <a href="{% url 'muzyk:zespol-delete' p.id %}">Usuń</a>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+        </table>
+        <p>Wróć do <a href="{% url 'muzyk:slow' %}">poprzedniej strony</a>.</p>
+    </div>
 </body>
 </html>

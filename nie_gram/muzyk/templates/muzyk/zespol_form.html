@@ -10,11 +10,15 @@
     <title>Tworzymy zespol</title>
 </head>
 <body>
-    <form method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Zapisz">
-    </form>
-    <p>Wróć do <a href="{% url 'muzyk:zespol-lista' %}">poprzedniej strony</a>.</p>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <br>
+            <input type="submit" value="Zapisz">
+        </form>
+        <br>
+        <p>Wróć do <a href="{% url 'muzyk:zespol-lista' %}">poprzedniej strony</a>.</p>
+    </div>
 </body>
 </html>
