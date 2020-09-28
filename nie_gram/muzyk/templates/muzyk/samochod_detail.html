@@ -10,18 +10,21 @@
     <title>Szczegóły samochodu</title>
 </head>
 <body>
-    <h2>{{ object.nazwa }}</h2>
-    <table class="table">-->
-    <tr><th>Lp.</th><th>Nazwa</th><th>Paliwo</th><th>Ile litrów pali na 100km</th><th>W jakim jest zespole</th><th>Nazwa użytkownika, który go stworzył</th></tr>
-    <tr>
-      <td>{{ object.id }}</td>
-      <td>{{ object.nazwa }}</td>
-      <td>{{ object.paliwo }}</td>
-      <td>{{ object.ile_litrow_pali_na_100_km }}</td>
-      <td>{{ object.zespol }}</td>
-      <td>{{ object.autor }}</td>
-    </tr>
-    </table>
-    <p>Wróć do <a href="{% url 'muzyk:samochod-lista' %}">poprzedniej strony</a>.</p>
+    <div class="container">
+        <h2>{{ object.nazwa }}</h2>
+        <table class="table">-->
+        <tr><th>Lp.</th><th>Nazwa</th><th>Paliwo</th><th>Ile litrów pali na 100km</th><th>W jakim jest zespole</th><th>Nazwa użytkownika, który go stworzył</th></tr>
+        <tr>
+          <td>{{ object.id }}</td>
+          <td>{{ object.nazwa }}</td>
+          <td>{{ object.paliwo }}</td>
+          <td>{{ object.ile_litrow_pali_na_100_km }}</td>
+          <td>{{ object.zespol }}</td>
+          <td>{{ object.autor }}</td>
+        </tr>
+        </table>
+        <br>
+        <p>Wróć do <a href="{% url 'muzyk:samochod-lista' %}">poprzedniej strony</a>.</p>
+    </div>
 </body>
 </html>

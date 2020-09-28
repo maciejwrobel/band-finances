@@ -10,11 +10,15 @@
     <title>Czy napewno usunąć?</title>
 </head>
 <body>
-    <form method="post">
-        {% csrf_token %}
-        Czy napewno usunąć {{object}} ?
-        <input type="submit" value="Zatwierdź">
-    </form>
-    <p>Wróć do <a href="{% url 'muzyk:zespol-lista' %}">poprzedniej strony</a>.</p>
+    <div class="container">
+        <p></p>
+        <form method="post">
+            {% csrf_token %}
+            Czy napewno usunąć {{object}} ?
+            <input type="submit" value="Zatwierdź">
+        </form>
+        <br>
+        <p>Wróć do <a href="{% url 'muzyk:zespol-lista' %}">poprzedniej strony</a>.</p>
+    </div>
 </body>
 </html>

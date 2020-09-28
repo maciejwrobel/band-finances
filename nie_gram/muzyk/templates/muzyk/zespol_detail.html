@@ -10,21 +10,24 @@
     <title>Szczegóły zespołu</title>
 </head>
 <body>
-    <h2>{{ object.nazwa }}</h2>
-    <table class="table">-->
-    <tr><th>Lp.</th><th>Nazwa</th><th>Ilość członków</th><th>Skład</th><th>Manager</th><th>Minimalna kwota zlecenia</th><th>Fundusz</th><th>Nazwa użytkownika</th></tr>
-    <tr>
-      <td>{{ object.id }}</td>
-      <td>{{ object.nazwa }}</td>
-      <td>{{ object.ilosc_czlonkow }}</td>
-      <td>{{ object.samochody }}</td>
-      <td>{{ object.sklad_zespolu }}</td>
-      <td>{{ object.manager }}</td>
-      <td>{{ object.min_kwota_zlecenia }}</td>
-      <td>{{ object.fundusz }}</td>
-      <td>{{ object.autor.username }}</td>
-    </tr>
-    </table>
-    <p>Wróć do <a href="{% url 'muzyk:zespol-lista' %}">poprzedniej strony</a>.</p>
+    <div class="container">
+        <h2>{{ object.nazwa }}</h2>
+        <table class="table">-->
+        <tr><th>Lp.</th><th>Nazwa</th><th>Ilość członków</th><th>Skład</th><th>Manager</th><th>Minimalna kwota zlecenia</th><th>Fundusz</th><th>Nazwa użytkownika</th></tr>
+        <tr>
+          <td>{{ object.id }}</td>
+          <td>{{ object.nazwa }}</td>
+          <td>{{ object.ilosc_czlonkow }}</td>
+          <td>{{ object.samochody }}</td>
+          <td>{{ object.sklad_zespolu }}</td>
+          <td>{{ object.manager }}</td>
+          <td>{{ object.min_kwota_zlecenia }}</td>
+          <td>{{ object.fundusz }}</td>
+          <td>{{ object.autor.username }}</td>
+        </tr>
+        </table>
+        <br>
+        <p>Wróć do <a href="{% url 'muzyk:zespol-lista' %}">poprzedniej strony</a>.</p>
+    </div>
 </body>
 </html>

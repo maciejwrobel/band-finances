@@ -6,11 +6,22 @@ from django.urls import reverse
 class Zespol(models.Model):
     nazwa = models.CharField(max_length=100, blank=False)
     ilosc_czlonkow = models.PositiveIntegerField()
-    sklad_zespolu = models.TextField(help_text='Można wypisać tu członków zespołu', blank=True)
-    manager = models.CharField(max_length=1, choices=[('T', "Tak"), ('N', "Nie")], default='T')
-    booker = models.CharField(max_length=1, choices=[('T', "Tak"), ('N', "Nie")], default='T')
     min_kwota_zlecenia = models.PositiveIntegerField()
-    fundusz = models.CharField(max_length=1, choices=[('T', "Tak"), ('N', "Nie")], default='T')
+    manager = models.CharField(max_length=1, choices=[
+        ('P', "% wynagrodzenia"),
+        ('S', "stawka [zł]"),
+        ('C', "jako członek zespolu"),
+        ('N', "Nie")], default='N')
+    booker = models.CharField(max_length=1, choices=[
+        ('P', "% wynagrodzenia"),
+        ('S', "stawka [zł]"),
+        ('C', "jako członek zespolu"),
+        ('N', "Nie")], default='N')
+    fundusz = models.CharField(max_length=1, choices=[
+        ('P', "% z wynagrodzenia"),
+        ('S', "określona stawka [zł]"),
+        ('C', "jako członek zespolu"),
+        ('N', "Nie")], default='N')
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
@@ -28,7 +39,7 @@ class Samochod(models.Model):
     zespol = models.ForeignKey(Zespol,
                                on_delete=models.CASCADE,
                                related_name='samochody')
-    nazwa = models.CharField(max_length=50, help_text='Nazwa samochodu', blank=False)
+    nazwa = models.CharField(max_length=50, help_text='', blank=False)
     BENZYNA = 'B'
     DIESEL = 'D'
     LPG = 'G'
@@ -45,13 +56,11 @@ class Samochod(models.Model):
     class Meta:
         verbose_name_plural = 'samochody'
 
-
     def __str__(self):
         return f"{self.nazwa}"
 
     def get_absolute_url(self):
         return reverse('muzyk:samochod-lista')
-
 
 
 class AnalizaLubWycenaOferty(models.Model):

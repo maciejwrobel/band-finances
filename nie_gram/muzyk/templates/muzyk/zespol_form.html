@@ -11,9 +11,12 @@
 </head>
 <body>
     <div class="container">
+        <p></p>
         <form method="post">
             {% csrf_token %}
-            {{ form }}
+
+                    {{ form.as_p }}
+
             <br>
             <input type="submit" value="Zapisz">
         </form>
